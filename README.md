@@ -15,16 +15,20 @@ https://www.rust-lang.org/learn/get-started
 2. [VOICEVOX](https://voicevox.hiroshiba.jp/) をインストールします。
 [Engine](https://github.com/VOICEVOX/voicevox_engine) だけのインストールでも動作します。
 
-3. このリポジトリをクローンします。
+3. 依存パッケージをインストールします。
+
+    * Ubuntu Linux の場合: `sudo apt-get install -y libasound2-dev pkg-config libssl-dev`
+
+4. このリポジトリをクローンします。
 
 ```
 git clone https://github.com/darashi/murasaki.git
 cd murasaki
 ```
 
-4. `config.toml.example` を編集し、 `config.toml` として保存します。
+5. `config.toml.example` を編集し、 `config.toml` として保存します。
 
-5. ビルドして実行します。
+6. ビルドして実行します。
 
 ```
 cargo run --release
