@@ -12,6 +12,8 @@
 
 https://www.rust-lang.org/learn/get-started
 
+以下のバージョンで動作しています。
+
 2. [VOICEVOX](https://voicevox.hiroshiba.jp/) をインストールします。
 [Engine](https://github.com/VOICEVOX/voicevox_engine) だけのインストールでも動作します。
 
@@ -47,3 +49,12 @@ VOICEVOX が起動している状態で http://localhost:50021/speakers を開�
 
 このソフトウェアは、VOICEVOX の音声合成エンジンを利用します。
 [VOICEVOX 利用規約](https://voicevox.hiroshiba.jp/term/) と各音声合成ライブラリの規約を遵守してください。
+
+## 作者の動作確認環境
+
+Ubuntu Linux 22.10
+
+```
+❯ rustc --version
+rustc 1.68.0 (2c8cc3432 2023-03-06)
+```
