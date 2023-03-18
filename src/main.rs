@@ -223,7 +223,7 @@ impl Murasaki {
         }
         let metadata = self.get_metadata_with_cache(&event.pubkey).await;
         info!("reaction recieved {}", event.content);
-        let text = self.text_transformer.transform_note(&event, &metadata);
+        let text = self.text_transformer.transform_reaction(&event, &metadata);
         self.tts.say(self.config.speaker, &text).await
     }
 }
