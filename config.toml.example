@@ -1,0 +1,21 @@
+# Edit this file and save it as `config.toml`
+
+speaker = 14 # VOICEVOX:冥鳴ひまり
+
+[nostr]
+relays = [
+    "wss://relay-1.example.com",
+    "wss://relay-2.example.com",
+]
+old_threshold_seconds = 300
+# pubkey = "npub..."
+
+[voicevox]
+url = "http://localhost:50021"
+max_retry = 3
+
+[transform]
+url_alternative_text = " URL "
+max_length = 140
+ellipsis_text = " 以下略"
+read_name = true
