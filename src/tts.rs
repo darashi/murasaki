@@ -54,6 +54,6 @@ impl TTS {
             }
         }
 
-        Err(anyhow!("syntesis retry limit exceeded"))
+        Err(anyhow!("synthesis retry limit exceeded"))
     }
 }
