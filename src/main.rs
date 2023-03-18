@@ -47,7 +47,7 @@ async fn fetch_metadata(
 struct Murasaki {
     config: Config,
     tts: TTS,
-    metadata_db: murasaki::metadata::Database,
+    metadata_db: murasaki::metadata::Cache,
     nostr_client: nostr_sdk::Client,
     text_transformer: Transformer,
     following_mode: bool,
@@ -76,7 +76,7 @@ impl Murasaki {
         Ok(Self {
             config,
             tts,
-            metadata_db: murasaki::metadata::Database::new(),
+            metadata_db: murasaki::metadata::Cache::new(Duration::from_secs(5 * 60)),
             nostr_client,
             text_transformer,
             following_mode,
