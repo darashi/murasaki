@@ -2,6 +2,7 @@ use nostr_sdk::Metadata;
 
 use crate::config::TransformConfig;
 use linkify::LinkFinder;
+use regex::Regex;
 
 pub struct Transformer {
     config: TransformConfig,
@@ -51,6 +52,7 @@ impl Transformer {
 
         let text = self.replace_urls(&event.content);
         let text = self.truncate_long(text);
+        let text = Self::truncate_nip19(text);
 
         from + text.as_str()
     }
@@ -74,5 +76,25 @@ impl Transformer {
         } else {
             text
         }
+    }
+
+    fn truncate_nip19(text: String) -> String {
+        let re =
+            Regex::new(r"(nsec|npub|note|nprofile|nevent|nrelay|naddr)1[0-9ac-hj-np-z]+").unwrap();
+        re.replace_all(&text, "$1").to_string()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_truncate_nip19() {
+        assert_eq!(
+            super::Transformer::truncate_nip19(
+                "hello npub1xajyg2w6kvslletelz9z94jecdsjmg7jqgrgcn8zvjz78k2sq5fslch3pq test"
+                    .to_string()
+            ),
+            "hello npub test".to_string()
+        );
     }
 }

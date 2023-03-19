@@ -19,3 +19,4 @@ serde = "1.0.155"
 anyhow = "1.0.69"
 linkify = "0.9.0"
 clap = { version = "4.1.8", features = ["derive"] }
+regex = "1.7.1"
