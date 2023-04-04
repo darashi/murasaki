@@ -19,7 +19,7 @@ https://www.rust-lang.org/learn/get-started
 
 3. 依存パッケージをインストールします。
 
-    * Ubuntu Linux の場合: `sudo apt-get install -y libasound2-dev pkg-config libssl-dev`
+    * Ubuntu Linux の場合: `sudo apt-get install -y build-essential libasound2-dev pkg-config libssl-dev`
 
 4. このリポジトリをクローンします。
 
