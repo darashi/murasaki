@@ -26,7 +26,9 @@ async fn fetch_metadata(
     pubkey: &XOnlyPublicKey,
 ) -> anyhow::Result<Metadata> {
     let timeout = Duration::from_secs(10);
-    let metadata_subscription = Filter::new().kinds(vec![Kind::Metadata]).author(*pubkey);
+    let metadata_subscription = Filter::new()
+        .kinds(vec![Kind::Metadata])
+        .author(pubkey.to_string());
     let events = nostr_client
         .get_events_of(vec![metadata_subscription], Some(timeout))
         .await?;
@@ -109,7 +111,7 @@ impl Murasaki {
                 Filter::new()
                     .limit(0)
                     .kinds(vec![Kind::TextNote, Kind::ContactList])
-                    .authors(pks.into_iter().collect())
+                    .authors(pks.into_iter().map(|pk| pk.to_string()).collect())
             } else {
                 Filter::new().limit(0).kinds(vec![Kind::TextNote])
             };
